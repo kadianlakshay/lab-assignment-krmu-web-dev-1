@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width,initial-scale=1.0">
+    <title>Lab assignment 3</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizzing: border-box;
+        }
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, verdana, sans-serif;
+            background: linear-gradient(135deg, 3667eea 0%, #764ba2 100%);
+            main-height:100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1{
+            color: white;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .solution{
+            background:white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .solution:hover {
+            transform: translateY(-5px);
+        }
+        h2{
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        h2::after {
+            content: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin:20px 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color:white;
+            font-weight: 600;
+            text-tranform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        td{
+            bordre-bottom: 1px solid #eee;
+        }
+        tr:last-child td{
+            border-bottom: none;
+        }
+        tr:hover {
+            background-color: #f8f9ff;
+        }
+        form{
+            max-width: 600px;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234 0.1);
+        }
+        .radio-group {
+            margin-top: 10px;
+            display: flex;
+            gap: 20px;
+        }
+        .radio option {
+            display: flex;
+            align-items: center;
+        }
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        .radio-option label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }button {
+            margin-top: 30px;
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        button-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            color: white;
+        }
+        .blog-header h3 {
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+        nav {
+            display: flex;
+            gap: 25;
+            font-size: 1.1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+        article {
+            margin-bottom: 25px;
+            padding: 25px;
+            background: linear-gradinet(135deg, #f8f9ff 0%, #fff 100%);
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        article:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translate(5px);
+        }
+        article h3 {
+            color: #667eea;
+            margin-bottom:10px;
+        }
+        article p:first-of-type{
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        article p:last-of-type {
+            color: #555;
+            line-height: 1.6;
+        }
+        footer {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            text-align: center;
+            boredr-radius: 10px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head> 
+<body>
+<div class="container">
+    <h1>Lab assignment 3</h1>
+
+    <!--solution 1: complex table-->
+    <div class="solution">
+        <h2>1. complex table - student grades</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Math</th>
+                    <th>Science</th>
+                    <th>English</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sarah Johnson</td>
+                    <td>92</td>
+                    <td>88</td>
+                    <td>95</td>
+                </tr>
+                <tr>
+                    <td>Michael Chen</td>
+                    <td>85</td>
+                    <td>91</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td>Nakul</td>
+                    <td>94</td>
+                    <td>89</td>
+                    <td>92</td>
+                </tr>
+                <tr>
+                    <td>Nirav</td>
+                    <td>78</td>
+                    <td>82</td>
+                    <td>85</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--solution 2: Registration Form -->
+    <div class="Solution">
+        <h2>2. Registration Form (Extended)</h2>
+    <form>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email"name="email" placeholder="your.email.@example.com" required>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter a secure password" required>
+
+        <label>Gender</label>
+        <div class="radio-group">
+            <div class="radio-option">
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="female" name="Gender" value="female">
+                <label for="female">female</label>
+            </div>
+        </div>
+        
+        <label for="bio">Bio</label>
+        <textarea id="bio" name="bio" rows="5" placeholder="Tell us about yourself..."></textarea>
+
+        <button type="'submit">Register</button>
+    </form>
+</div>  
+
+<!--Solution 3: semantic blog layout -->
+<div class="solution">
+    <h2>3. Semantic Blog Layout </h2>
+
+    <header class="blog-header">
+        <h3>My Tech Blog</h3>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#articles">Articles</a>
+            <a href="#contact">contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <article>
+                <h3>Understanding HTML5 Semantic Elments</h3>
+                <p>Posted on October 1, 2025</p>
+                <p>Semantic HTml elements provide meaning to the structure of web content. Elements likeheader, nav, main, article, section, and footer help both browsers and developers understand the purpose od different parts of a webpage. This improve accesibility and SEO.</p>
+            </article>
+
+            <article>
+                <h3>CSS Grid vs Flexbox: When to use which</h3>
+                <p>Posted on September 28, 2025</p>
+                <p> Both CsS Grid and Flexbox are powerful layout tools, but theyexcel in different scenarios. Flexbox is ideal for one-dimensional layouts, while Grid shines in two-dimensional layouts. Understanding their strengths helps you choose the right tool for your project. </p>
+            </article>
+
+            <article>
+                <h3>JavaScript ES6 Features You Should know</h3>
+                <p>Posted on September 25, 2025</p>
+                <p>ES6 introduced many features that make Javascript more powerful and easier to write. Arrow functions, template literals, destructuring, and the spread operator are ust a few example. These features have become essential for modern web development.</p>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 My tech Blog. All right reserved,</p>
+        <p>contact: info@mytechblog.com</p>
+    </footer>
+   </div>
+  </div>  
+</body>   
+</html>
